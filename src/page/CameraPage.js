@@ -7,6 +7,7 @@ import fruit from '../assets/icon/icon.png';
 const CameraPage = () => {
     const fileInputRef = useRef(null);
     const [responseText, setResponseText] = useState('');
+    const [responseConfidence, setResponseConfidence] = useState('');
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
@@ -43,6 +44,7 @@ const CameraPage = () => {
 
             setLoading(false);
             setResponseText(response.data.predictedValue);
+            setResponseConfidence(response.data.percent);
             setError(null);
             console.log('Response from the API: ', response);
         } catch (error) {
@@ -76,7 +78,7 @@ const CameraPage = () => {
             {responseText &&
                 <Message success>
                     <Message.Header>Image successfully predicted</Message.Header>
-                    <p>The predicted fruit is: <strong>{responseText}</strong></p>
+                    <p>The predicted fruit is: <strong>{responseText}</strong> ({responseConfidence}%)</p>
                 </Message>
             }
             {error &&
