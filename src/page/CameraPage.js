@@ -1,5 +1,4 @@
 import React, {useRef, useState} from 'react';
-import axios from 'axios';
 import {Button, Container, Dimmer, Divider, Header, Image, Loader, Message} from 'semantic-ui-react';
 
 import fruit from '../assets/icon/icon.png';
@@ -29,22 +28,7 @@ const CameraPage = () => {
         }
 
         try {
-            setLoading(true);
-            // Create a FormData object to send the image to the API
-            const formData = new FormData();
-            formData.append('image', file, file.name);
-
-            // Send the image to the API
-            const response = await axios.post('https://fruit-recognizer.dev-alexis.com/api/recognize', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
-
-            setLoading(false);
-            setResponseText(response.data.predictedValue);
-            setError(null);
-            console.log('Response from the API: ', response);
+            // TODO
         } catch (error) {
             console.error('Error while sending the image to the API: ', error);
             setResponseText(null);
