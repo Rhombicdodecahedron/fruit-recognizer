@@ -45,7 +45,7 @@ const CameraPage = () => {
             <Header as='h1'>Fruit Recognizer</Header>
             <Divider hidden></Divider>
             <Image src={fruit} size='small' centered rounded/>
-            <Header as='h4'>A simple fruit recognizer using a neural network. Currently, it can recognize apples, bananas and lemons.</Header>
+            <Header as='h4'>A simple fruit recognizer using a neural network. Currently, it can recognize apples, bananas and pineapples.</Header>
             <Divider hidden></Divider>
             <Button onClick={openCamera}>Open camera</Button>
             <input
