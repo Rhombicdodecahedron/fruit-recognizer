@@ -6,6 +6,7 @@ import fruit from '../assets/icon/icon.png';
 const CameraPage = () => {
     const fileInputRef = useRef(null);
     const [responseText, setResponseText] = useState('');
+    const [responseConfidence, setResponseConfidence] = useState('');
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
@@ -60,7 +61,7 @@ const CameraPage = () => {
             {responseText &&
                 <Message success>
                     <Message.Header>Image successfully predicted</Message.Header>
-                    <p>The predicted fruit is: <strong>{responseText}</strong></p>
+                    <p>The predicted fruit is: <strong>{responseText} ({responseConfidence}%)</strong></p>
                 </Message>
             }
             {error &&
